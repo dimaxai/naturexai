@@ -18,6 +18,8 @@ OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 # Доступные бесплатные vision-модели (проверенные рабочие варианты)
 AVAILABLE_MODELS = {
+    'openrouter_free': 'openrouter/free',
+    'qwen_38_27b': 'qwen/qwen3.8-27b:free',
     'qwen_32b': 'qwen/qwen2.5-vl-32b-instruct:free',
     'qwen_72b': 'qwen/qwen2.5-vl-72b-instruct:free', 
     'qwen_7b': 'qwen/qwen2.5-vl-7b-instruct:free',
@@ -27,17 +29,18 @@ AVAILABLE_MODELS = {
     'mistral_small': 'qwen/qwen3.8-27b:free'
 }
 
-# Основная модель (тестируем Mistral Small 3.2 24B)
-VISION_MODEL = AVAILABLE_MODELS['mistral_small']
+# Основная модель
+VISION_MODEL = AVAILABLE_MODELS['openrouter_free']
 
 # Список резервных моделей (в порядке приоритета)
 FALLBACK_MODELS = [
-    'mistral_small', # Тестируем новую модель
-    'qwen_32b',      # Основная рекомендуемая
-    'qwen_7b',       # Быстрая резервная
-    'claude_haiku',  # Если Qwen недоступен
-    'llama_vision',  # Альтернативная
-    'qwen_72b'       # Самая мощная (если есть ресурсы)
+    'openrouter_free', # Автоматический роутер бесплатных vision-моделей
+    'qwen_38_27b',     # Выбранная Qwen-модель, если роутер недоступен
+    'qwen_32b',
+    'qwen_7b',
+    'claude_haiku',
+    'llama_vision',
+    'qwen_72b'
 ]
 
 # Функция для смены модели
