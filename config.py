@@ -24,7 +24,7 @@ AVAILABLE_MODELS = {
     'claude_haiku': 'anthropic/claude-3.5-haiku:free',
     'llama_vision': 'meta-llama/llama-3.2-11b-vision-instruct:free',
     'pixtral': 'mistralai/pixtral-12b:free',
-    'mistral_small': 'mistralai/mistral-small-3.2-24b-instruct:free'
+    'mistral_small': 'qwen/qwen3.8-27b:free'
 }
 
 # Основная модель (тестируем Mistral Small 3.2 24B)
